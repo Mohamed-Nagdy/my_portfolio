@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../../../gen/assets.gen.dart';
+import '../providers/scroll_controller_provider.dart';
 import '../widgets/sections.dart';
+import 'sections/about.dart';
+import 'sections/contact.dart';
+import 'sections/projects.dart';
+import 'sections/skills.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
   static const routeName = '/home';
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final scrollController = ref.read(scrollControllerProvider);
+
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 68,
@@ -36,9 +45,24 @@ class HomePage extends StatelessWidget {
       ),
       drawer: ResponsiveBreakpoints.of(context).isMobile
           ? const Drawer(
-              child: Sections(),
+              child: Sections(
+                isDrawer: true,
+              ),
             )
           : null,
+      body: ScrollablePositionedList.builder(
+        itemCount: 4,
+        itemScrollController: scrollController,
+        itemBuilder: (context, index) {
+          return switch (index) {
+            0 => const AboutSection(),
+            1 => const SkillsSection(),
+            2 => const ProjectsSection(),
+            3 => const ContactSection(),
+            _ => Container(),
+          };
+        },
+      ),
     );
   }
 }
