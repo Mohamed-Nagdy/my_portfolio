@@ -16,11 +16,12 @@ class AboutSection extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isMobile = ResponsiveBreakpoints.of(context).isMobile;
+    final isTablet = ResponsiveBreakpoints.of(context).isTablet;
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
       child: ResponsiveRowColumn(
-        layout: isMobile
+        layout: isMobile || isTablet
             ? ResponsiveRowColumnType.COLUMN
             : ResponsiveRowColumnType.ROW,
         columnCrossAxisAlignment: CrossAxisAlignment.center,
@@ -50,17 +51,14 @@ class AboutSection extends ConsumerWidget {
                     ),
             )
                 .animate()
-                .move(
-                  duration: const Duration(milliseconds: 500),
-                  begin: const Offset(-500, 0),
-                )
+                .slide(duration: const Duration(milliseconds: 500))
                 .fadeIn(duration: const Duration(milliseconds: 500)),
           ),
           const ResponsiveRowColumnItem(child: SizedBox(width: 32)),
           const ResponsiveRowColumnItem(child: SizedBox(height: 32)),
           ResponsiveRowColumnItem(
             child: SizedBox(
-              width: isMobile
+              width: isMobile || isTablet
                   ? ResponsiveBreakpoints.of(context).screenWidth
                   : ResponsiveBreakpoints.of(context).screenWidth - 500,
               child: Column(
@@ -148,10 +146,7 @@ class AboutSection extends ConsumerWidget {
               ),
             )
                 .animate()
-                .move(
-                  duration: const Duration(milliseconds: 500),
-                  begin: const Offset(100, 0),
-                )
+                .slideX(duration: const Duration(milliseconds: 500))
                 .fadeIn(duration: const Duration(milliseconds: 500)),
           ),
         ],

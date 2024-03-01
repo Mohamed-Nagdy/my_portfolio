@@ -40,11 +40,124 @@ class $AssetsImagesGen {
       [blackWhite, colored, location, logo, mobile, moon, sun];
 }
 
+class $AssetsSkillsGen {
+  const $AssetsSkillsGen();
+
+  /// File path: assets/skills/android.png
+  AssetGenImage get android => const AssetGenImage('assets/skills/android.png');
+
+  /// File path: assets/skills/bootstrap.png
+  AssetGenImage get bootstrap =>
+      const AssetGenImage('assets/skills/bootstrap.png');
+
+  /// File path: assets/skills/css.png
+  AssetGenImage get css => const AssetGenImage('assets/skills/css.png');
+
+  /// File path: assets/skills/dart.webp
+  AssetGenImage get dart => const AssetGenImage('assets/skills/dart.webp');
+
+  /// File path: assets/skills/expressjs.png
+  AssetGenImage get expressjs =>
+      const AssetGenImage('assets/skills/expressjs.png');
+
+  /// File path: assets/skills/firebase.webp
+  AssetGenImage get firebase =>
+      const AssetGenImage('assets/skills/firebase.webp');
+
+  /// File path: assets/skills/flutter.png
+  AssetGenImage get flutter => const AssetGenImage('assets/skills/flutter.png');
+
+  /// File path: assets/skills/git.png
+  AssetGenImage get git => const AssetGenImage('assets/skills/git.png');
+
+  /// File path: assets/skills/github.png
+  AssetGenImage get github => const AssetGenImage('assets/skills/github.png');
+
+  /// File path: assets/skills/html.png
+  AssetGenImage get html => const AssetGenImage('assets/skills/html.png');
+
+  /// File path: assets/skills/ios.png
+  AssetGenImage get ios => const AssetGenImage('assets/skills/ios.png');
+
+  /// File path: assets/skills/java.png
+  AssetGenImage get java => const AssetGenImage('assets/skills/java.png');
+
+  /// File path: assets/skills/javascript.png
+  AssetGenImage get javascript =>
+      const AssetGenImage('assets/skills/javascript.png');
+
+  /// File path: assets/skills/jquery.png
+  AssetGenImage get jquery => const AssetGenImage('assets/skills/jquery.png');
+
+  /// File path: assets/skills/kotlin.png
+  AssetGenImage get kotlin => const AssetGenImage('assets/skills/kotlin.png');
+
+  /// File path: assets/skills/mongodb.png
+  AssetGenImage get mongodb => const AssetGenImage('assets/skills/mongodb.png');
+
+  /// File path: assets/skills/mysql.png
+  AssetGenImage get mysql => const AssetGenImage('assets/skills/mysql.png');
+
+  /// File path: assets/skills/nodejs.png
+  AssetGenImage get nodejs => const AssetGenImage('assets/skills/nodejs.png');
+
+  /// File path: assets/skills/postgresql.png
+  AssetGenImage get postgresql =>
+      const AssetGenImage('assets/skills/postgresql.png');
+
+  /// File path: assets/skills/responsive.webp
+  AssetGenImage get responsive =>
+      const AssetGenImage('assets/skills/responsive.webp');
+
+  /// File path: assets/skills/restapi.png
+  AssetGenImage get restapi => const AssetGenImage('assets/skills/restapi.png');
+
+  /// File path: assets/skills/socketio.png
+  AssetGenImage get socketio =>
+      const AssetGenImage('assets/skills/socketio.png');
+
+  /// File path: assets/skills/swiftui.png
+  AssetGenImage get swiftui => const AssetGenImage('assets/skills/swiftui.png');
+
+  /// File path: assets/skills/typescript.png
+  AssetGenImage get typescript =>
+      const AssetGenImage('assets/skills/typescript.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        android,
+        bootstrap,
+        css,
+        dart,
+        expressjs,
+        firebase,
+        flutter,
+        git,
+        github,
+        html,
+        ios,
+        java,
+        javascript,
+        jquery,
+        kotlin,
+        mongodb,
+        mysql,
+        nodejs,
+        postgresql,
+        responsive,
+        restapi,
+        socketio,
+        swiftui,
+        typescript
+      ];
+}
+
 class Assets {
   Assets._();
 
   static const AssetGenImage hi = AssetGenImage('assets/hi.gif');
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsSkillsGen skills = $AssetsSkillsGen();
 
   /// List of all assets
   static List<AssetGenImage> get values => [hi];

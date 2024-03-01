@@ -3,7 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
+import '../../../constants.dart';
 import '../../../gen/assets.gen.dart';
 import '../../../providers/theme_provider.dart';
 import '../../../widgets/primary_button.dart';
@@ -108,7 +110,9 @@ class Sections extends ConsumerWidget {
         ResponsiveRowColumnItem(
           child: PrimaryButton(
             title: 'Download CV',
-            onTap: () {},
+            onTap: () {
+              launchUrlString(cvURL);
+            },
             width: ResponsiveBreakpoints.of(context).isMobile
                 ? double.infinity
                 : null,
