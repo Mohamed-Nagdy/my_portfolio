@@ -130,7 +130,10 @@ class AboutSection extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 4),
                           child: InkWell(
                             onTap: () {
-                              launchUrlString(e.link);
+                              launchUrlString(
+                                e.link,
+                                mode: LaunchMode.externalApplication,
+                              );
                             },
                             child: Icon(
                               e.icon,

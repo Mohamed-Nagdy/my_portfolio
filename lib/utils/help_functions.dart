@@ -1,12 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher_string.dart';
-
-Future<void> launchWhatsapp(String number) async {
-  final String url = 'https://wa.me/$number';
-  if (await canLaunchUrlString(url)) {
-    await launchUrlString(url);
-  }
-}
 
 bool isDark(BuildContext context) {
   return Theme.of(context).brightness == Brightness.dark;
