@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 enum SocialLinks {
+  github,
   linkedin,
   hackerrank,
   twitter,
@@ -10,6 +11,8 @@ enum SocialLinks {
 
   String get link {
     switch (this) {
+      case github:
+        return 'https://github.com/Mohamed-Nagdy';
       case linkedin:
         return 'https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile';
       case hackerrank:
@@ -25,6 +28,8 @@ enum SocialLinks {
 
   IconData get icon {
     switch (this) {
+      case github:
+        return FontAwesomeIcons.github;
       case linkedin:
         return FontAwesomeIcons.linkedin;
       case hackerrank:
@@ -38,8 +43,10 @@ enum SocialLinks {
     }
   }
 
-  Color get color {
+  Color? get color {
     switch (this) {
+      case github:
+        return null;
       case linkedin:
         return Colors.blue;
       case hackerrank:
