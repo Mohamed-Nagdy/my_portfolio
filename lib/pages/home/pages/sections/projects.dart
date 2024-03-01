@@ -6,6 +6,8 @@ class ProjectsSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Container();
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+    );
   }
 }

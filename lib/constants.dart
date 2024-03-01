@@ -11,3 +11,5 @@ const aboutMeLong =
 const myAddress = 'Cairo, Egypt';
 const cvURL =
     'https://drive.google.com/file/d/1cMULEa-in5872uzjoNnR3fpxxhmRJEG6/view?usp=share_link';
+const myEmail = 'mohamednagdy257@gmail.com';
+const myPhone = '+201558400064';

@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../enums/skills.dart';
 import '../../../../themes/style.dart';
 import '../../../../utils/help_functions.dart';
 import '../../../../widgets/primary_chip.dart';
 
-class SkillsSection extends ConsumerWidget {
+class SkillsSection extends StatelessWidget {
   const SkillsSection({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
       color: isDark(context) ? graySwatch.shade800 : graySwatch.shade50,
@@ -19,7 +18,6 @@ class SkillsSection extends ConsumerWidget {
         children: [
           const PrimaryChip(
             text: 'Skills',
-            color: Colors.blue,
           )
               .animate()
               .slideY(duration: const Duration(milliseconds: 500))

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -10,11 +9,11 @@ import '../../../../gen/assets.gen.dart';
 import '../../../../themes/style.dart';
 import '../../../../utils/help_functions.dart';
 
-class AboutSection extends ConsumerWidget {
+class AboutSection extends StatelessWidget {
   const AboutSection({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final isMobile = ResponsiveBreakpoints.of(context).isMobile;
     final isTablet = ResponsiveBreakpoints.of(context).isTablet;
 

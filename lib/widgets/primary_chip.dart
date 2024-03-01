@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '../themes/style.dart';
+import '../utils/help_functions.dart';
+
 class PrimaryChip extends StatelessWidget {
   const PrimaryChip({
     required this.text,
-    required this.color,
     super.key,
     this.onTap,
   });
   final String text;
-  final Color color;
   final void Function()? onTap;
 
   @override
@@ -17,24 +18,22 @@ class PrimaryChip extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
-        color: color.withOpacity(0.2),
+        color: isDark(context) ? graySwatch.shade700 : graySwatch.shade200,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             text,
-            style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                  color: color,
-                ),
+            style: Theme.of(context).textTheme.labelSmall,
           ),
           const SizedBox(width: 4),
           if (onTap != null)
             InkWell(
               onTap: onTap,
-              child: Icon(
+              child: const Icon(
                 Icons.clear,
-                color: color,
                 size: 20,
               ),
             ),
