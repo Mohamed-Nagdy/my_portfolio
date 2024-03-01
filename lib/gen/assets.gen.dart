@@ -19,6 +19,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/colored.png
   AssetGenImage get colored => const AssetGenImage('assets/images/colored.png');
 
+  /// File path: assets/images/location.png
+  AssetGenImage get location =>
+      const AssetGenImage('assets/images/location.png');
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
@@ -33,7 +37,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values =>
-      [blackWhite, colored, logo, mobile, moon, sun];
+      [blackWhite, colored, location, logo, mobile, moon, sun];
 }
 
 class Assets {

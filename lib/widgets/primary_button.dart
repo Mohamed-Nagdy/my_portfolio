@@ -33,6 +33,7 @@ class PrimaryButton extends StatelessWidget {
             color: isDark(context) ? graySwatch.shade50 : graySwatch.shade900,
             borderRadius: BorderRadius.circular(8),
           ),
+          alignment: Alignment.center,
           child: Text(
             title,
             style: Theme.of(context).textTheme.labelMedium?.copyWith(
