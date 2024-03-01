@@ -1,5 +1,9 @@
 import 'dart:async';
+import 'dart:developer';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,6 +13,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 import 'constants.dart';
+import 'firebase_options.dart';
 import 'providers/theme_provider.dart';
 import 'router.dart';
 import 'themes/style.dart';
@@ -20,6 +25,23 @@ void main() {
   runZonedGuarded(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
+
+      try {
+        await Firebase.initializeApp(
+          options: DefaultFirebaseOptions.currentPlatform,
+        );
+      } catch (e) {
+        log(e.toString());
+      }
+
+      FlutterError.onError = (errorDetails) {
+        FirebaseCrashlytics.instance.recordFlutterError(errorDetails);
+      };
+      PlatformDispatcher.instance.onError = (error, stack) {
+        FirebaseCrashlytics.instance.recordError(error, stack);
+        return true;
+      };
+
       setPathUrlStrategy();
       await Hive.initFlutter();
       box = await Hive.openBox(Constants.mainBox.name);
@@ -39,7 +61,7 @@ void main() {
       );
     },
     (e, stack) {
-      debugPrint('runZonedGuarded error $e, With Stack $stack');
+      log('runZonedGuarded error $e, With Stack $stack');
     },
   );
 }
