@@ -1,0 +1,4 @@
+enum Constants {
+  mainBox,
+  themeKey,
+}
