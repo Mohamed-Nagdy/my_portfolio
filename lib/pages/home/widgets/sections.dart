@@ -88,6 +88,9 @@ class Sections extends ConsumerWidget {
           child: PrimaryButton(
             title: 'Download CV',
             onTap: () {},
+            width: ResponsiveBreakpoints.of(context).isMobile
+                ? double.infinity
+                : null,
           ),
         ),
       ],
