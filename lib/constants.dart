@@ -15,3 +15,7 @@ const cvURL =
     'https://drive.google.com/file/d/1cMULEa-in5872uzjoNnR3fpxxhmRJEG6/view?usp=share_link';
 const myEmail = 'mohamednagdy257@gmail.com';
 const myPhone = '+201558400064';
+
+// projects
+const projectBaseURL =
+    'https://raw.githubusercontent.com/Mohamed-Nagdy/my_portfolio/main';

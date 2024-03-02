@@ -26,19 +26,20 @@ Box<dynamic>? box;
 Future<void> uploadProjectsToFirebase() async {
   final savedCount = box?.get(Constants.savedProjectsCountKey.name) ?? 0;
   if (savedCount == 0 || savedCount != myProjects.length) {
-    log('In Save Projects to firebase');
     final db = FirebaseFirestore.instance;
 
     // remove all projects
-    final docs = await db.collection('projects').get();
+    final docs = await db.collection(Constants.projects.name).get();
     for (DocumentSnapshot ds in docs.docs) {
-      ds.reference.delete();
+      await ds.reference.delete();
     }
 
     // add all projects again with the newest ones
     for (var element in myProjects) {
-      db.collection('projects').add(element).then((DocumentReference doc) =>
-          print('DocumentSnapshot added with ID: ${doc.id}'));
+      await db
+          .collection(Constants.projects.name)
+          .add(element)
+          .then((DocumentReference doc) {});
     }
 
     // save the new count of projects

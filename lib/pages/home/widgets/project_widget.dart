@@ -47,7 +47,7 @@ class ProjectWidget extends StatelessWidget {
                     isDark(context) ? graySwatch.shade700 : graySwatch.shade100,
                 padding: EdgeInsets.all(isMobileOrTablet ? 8 : 32),
                 child: Image.network(
-                  'https://drive.usercontent.google.com/download?id=1FnHrrShQPsEUclaEmD-APBlFVK3AVOw0&authuser=0',
+                  '${project?.image}',
                   errorBuilder: (context, error, stackTrace) {
                     print('Error In Loading $error');
                     return const SizedBox();
@@ -75,7 +75,7 @@ class ProjectWidget extends StatelessWidget {
                       Text(
                         '${project?.description}',
                         style: Theme.of(context).textTheme.bodyMedium,
-                        maxLines: 3,
+                        maxLines: isMobileOrTablet ? 2 : 3,
                         overflow: TextOverflow.ellipsis,
                       ),
                       SizedBox(height: isMobileOrTablet ? 8 : 24),
