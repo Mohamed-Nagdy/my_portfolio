@@ -13,7 +13,7 @@ import 'sections/skills.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
-  static const routeName = '/home';
+  static const routeName = '/';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
