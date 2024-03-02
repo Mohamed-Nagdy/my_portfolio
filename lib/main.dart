@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -14,12 +15,36 @@ import 'package:url_strategy/url_strategy.dart';
 
 import 'constants.dart';
 import 'firebase_options.dart';
+import 'my_projects.dart';
 import 'providers/theme_provider.dart';
 import 'router.dart';
 import 'themes/style.dart';
 import 'utils/scroll_behavior.dart';
 
 Box<dynamic>? box;
+
+Future<void> uploadProjectsToFirebase() async {
+  final savedCount = box?.get(Constants.savedProjectsCountKey.name) ?? 0;
+  if (savedCount == 0 || savedCount != myProjects.length) {
+    log('In Save Projects to firebase');
+    final db = FirebaseFirestore.instance;
+
+    // remove all projects
+    final docs = await db.collection('projects').get();
+    for (DocumentSnapshot ds in docs.docs) {
+      ds.reference.delete();
+    }
+
+    // add all projects again with the newest ones
+    for (var element in myProjects) {
+      db.collection('projects').add(element).then((DocumentReference doc) =>
+          print('DocumentSnapshot added with ID: ${doc.id}'));
+    }
+
+    // save the new count of projects
+    await box?.put(Constants.savedProjectsCountKey.name, myProjects.length);
+  }
+}
 
 void main() {
   runZonedGuarded(
@@ -45,6 +70,7 @@ void main() {
       setPathUrlStrategy();
       await Hive.initFlutter();
       box = await Hive.openBox(Constants.mainBox.name);
+      await uploadProjectsToFirebase();
       final GoRouter router = getRouter;
 
       SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);

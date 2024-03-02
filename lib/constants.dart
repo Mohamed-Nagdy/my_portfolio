@@ -1,6 +1,8 @@
 enum Constants {
   mainBox,
   themeKey,
+  savedProjectsCountKey,
+  projects,
 }
 
 // about me
