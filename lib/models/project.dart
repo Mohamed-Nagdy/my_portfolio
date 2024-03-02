@@ -1,6 +1,7 @@
 class Project {
   Project(
-      {this.title,
+      {this.id,
+      this.title,
       this.description,
       this.googlePlay,
       this.appStore,
@@ -10,6 +11,7 @@ class Project {
       this.skills});
 
   Project.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     title = json['title'];
     description = json['description'];
     googlePlay = json['google_play'];
@@ -19,6 +21,7 @@ class Project {
     screenshots = json['screenshots'].cast<String>();
     skills = json['skills'].cast<String>();
   }
+  String? id;
   String? title;
   String? description;
   String? googlePlay;

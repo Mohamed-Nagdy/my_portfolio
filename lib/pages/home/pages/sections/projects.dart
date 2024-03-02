@@ -38,7 +38,9 @@ class ProjectsSection extends ConsumerWidget {
                   childAspectRatio: 2.0,
                 ),
                 itemBuilder: (context, index) {
-                  final project = Project.fromJson(data.docs[index].data());
+                  final localData = data.docs[index].data();
+                  localData['id'] = data.docs[index].id;
+                  final project = Project.fromJson(localData);
                   return ProjectWidget(
                     project: project,
                   );

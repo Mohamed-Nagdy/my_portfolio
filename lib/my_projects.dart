@@ -513,9 +513,9 @@ const myProjects = [
     ],
   },
   {
-    'title': 'Blue House Dashboard',
+    'title': 'Driving School Dashboard',
     'description':
-        'Dashboard for controlling Blue House App And Show All Orders And all payments',
+        'Dashboard for controlling Driving school all operations and adding students delete and update and all financial operations',
     'google_play': null,
     'app_store': null,
     'web': null,
