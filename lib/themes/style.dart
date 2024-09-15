@@ -34,7 +34,7 @@ ThemeData appTheme(String? usedFontFamily) {
       size: 24,
     ),
     dataTableTheme: DataTableThemeData(
-      dataRowColor: const MaterialStatePropertyAll(whiteColor),
+      dataRowColor: const WidgetStatePropertyAll(whiteColor),
       dividerThickness: 1,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
@@ -101,7 +101,7 @@ ThemeData appTheme(String? usedFontFamily) {
     ),
     primaryColor: primaryColor,
     colorScheme: ColorScheme.light(
-      background: graySwatch.shade50,
+      surface: graySwatch.shade50,
       secondary: secondaryColor,
       primary: primaryColor,
     ),
@@ -111,7 +111,7 @@ ThemeData appTheme(String? usedFontFamily) {
     ),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.resolveWith(
+        foregroundColor: WidgetStateProperty.resolveWith(
           (states) => primaryColor,
         ),
       ),
@@ -266,7 +266,7 @@ ThemeData darkTheme(String? usedFontFamily) {
     ),
     primaryColor: primaryColor,
     colorScheme: ColorScheme.dark(
-      background: graySwatch.shade900,
+      surface: graySwatch.shade900,
       secondary: secondaryColor,
       primary: primaryColor,
     ),
@@ -276,7 +276,7 @@ ThemeData darkTheme(String? usedFontFamily) {
     ),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.resolveWith(
+        foregroundColor: WidgetStateProperty.resolveWith(
           (states) => primaryColor,
         ),
       ),

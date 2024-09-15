@@ -2,8 +2,6 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -22,27 +20,27 @@ import 'utils/scroll_behavior.dart';
 Box<dynamic>? box;
 
 // Future<void> uploadProjectsToFirebase() async {
-//   final savedCount = box?.get(Constants.savedProjectsCountKey.name) ?? 0;
-//   if (savedCount == 0 || savedCount != myProjects.length) {
-//     final db = FirebaseFirestore.instance;
+//   // final savedCount = box?.get(Constants.savedProjectsCountKey.name) ?? 0;
+//   // if (savedCount == 0 || savedCount != myProjects.length) {
+//   final db = FirebaseFirestore.instance;
 
-//     // remove all projects
-//     final docs = await db.collection(Constants.projects.name).get();
-//     for (DocumentSnapshot ds in docs.docs) {
-//       await ds.reference.delete();
-//     }
-
-//     // add all projects again with the newest ones
-//     for (var element in myProjects) {
-//       await db
-//           .collection(Constants.projects.name)
-//           .add(element)
-//           .then((DocumentReference doc) {});
-//     }
-
-//     // save the new count of projects
-//     await box?.put(Constants.savedProjectsCountKey.name, myProjects.length);
+//   // remove all projects
+//   final docs = await db.collection(Constants.projects.name).get();
+//   for (DocumentSnapshot ds in docs.docs) {
+//     await ds.reference.delete();
 //   }
+
+//   // add all projects again with the newest ones
+//   for (var element in myProjects) {
+//     await db
+//         .collection(Constants.projects.name)
+//         .add(element)
+//         .then((DocumentReference doc) {});
+//   }
+
+//   // save the new count of projects
+//   // await box?.put(Constants.savedProjectsCountKey.name, myProjects.length);
+//   // }
 // }
 
 void main() {
@@ -57,14 +55,6 @@ void main() {
       } catch (e) {
         log(e.toString());
       }
-
-      FlutterError.onError = (errorDetails) {
-        FirebaseCrashlytics.instance.recordFlutterError(errorDetails);
-      };
-      PlatformDispatcher.instance.onError = (error, stack) {
-        FirebaseCrashlytics.instance.recordError(error, stack);
-        return true;
-      };
 
       setPathUrlStrategy();
       await Hive.initFlutter();
@@ -135,7 +125,7 @@ class _PrayerTimesAppState extends ConsumerState<DrivingSchoolDashboard> {
               ),
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.background,
+                  color: Theme.of(context).colorScheme.surface,
                 ),
                 child: child,
               ),

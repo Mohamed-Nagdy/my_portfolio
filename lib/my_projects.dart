@@ -2,12 +2,104 @@ import 'constants.dart';
 
 const myProjects = [
   {
+    'title': 'Sura Mariam',
+    'description':
+        'Listen, Reeading and Save surat mariam offline and with smallest app size with very good sound and has many features like \n Qibla \n Azkar \n Notify With Zekr in time \n Questions And Tests',
+    'google_play':
+        'https://play.google.com/store/apps/details?id=com.mohamednagdy.mariam',
+    'app_store': null,
+    'web': null,
+    'image': '$projectBaseURL/projects_images/mariam/logo.png',
+    'screenshots': [
+      '$projectBaseURL/projects_images/mariam/screenshot1.png',
+      '$projectBaseURL/projects_images/mariam/screenshot2.png',
+      '$projectBaseURL/projects_images/mariam/screenshot3.png',
+      '$projectBaseURL/projects_images/mariam/screenshot4.png',
+      '$projectBaseURL/projects_images/mariam/screenshot5.png',
+      '$projectBaseURL/projects_images/mariam/screenshot6.png',
+      '$projectBaseURL/projects_images/mariam/screenshot7.png',
+    ],
+    'skills': [
+      'Flutter',
+      'dart',
+      'Git',
+      'GitHub',
+      'RiverPod',
+      'Restful API',
+      'Responsive Design',
+      'Local Notifications',
+      'Hive',
+      'Sound Playing',
+    ],
+  },
+  {
+    'title': 'Juz Tabarak',
+    'description':
+        'Listen, Reeading and Save Juz Tabarak offline and with smallest app size with very good sound and has many features like \n Qibla \n Azkar \n Notify With Zekr in time \n Questions And Tests',
+    'google_play':
+        'https://play.google.com/store/apps/details?id=com.mohamednagdy.tabarak',
+    'app_store': null,
+    'web': null,
+    'image': '$projectBaseURL/projects_images/tabarak/logo.png',
+    'screenshots': [
+      '$projectBaseURL/projects_images/tabarak/screenshot1.png',
+      '$projectBaseURL/projects_images/tabarak/screenshot2.png',
+      '$projectBaseURL/projects_images/tabarak/screenshot3.png',
+      '$projectBaseURL/projects_images/tabarak/screenshot4.png',
+      '$projectBaseURL/projects_images/tabarak/screenshot5.png',
+      '$projectBaseURL/projects_images/tabarak/screenshot6.png',
+      '$projectBaseURL/projects_images/tabarak/screenshot7.png',
+      '$projectBaseURL/projects_images/tabarak/screenshot8.png',
+    ],
+    'skills': [
+      'Flutter',
+      'dart',
+      'Git',
+      'GitHub',
+      'RiverPod',
+      'Responsive Design',
+      'Local Notifications',
+      'Hive',
+      'Sound Playing',
+    ],
+  },
+  {
+    'title': 'Hijri and Gregorian calendar',
+    'description':
+        '(+1M Downloads)\nThe Hijri and Gregorian calendar application displays:\nHijri calendar\nGregorian calendar\nConvert date from Hijri to Gregorian\nConverting the date from Gregorian to Hijri\nprayer time\nQiblah\nView public events\nView your special events\nView past and upcoming years and months\nnight mode\nArabic and English\nControl alerts',
+    'google_play':
+        'https://play.google.com/store/apps/details?id=com.saudicalendars.calendar_app',
+    'app_store': 'https://apps.apple.com/app/id1532182932',
+    'web': null,
+    'image': '$projectBaseURL/projects_images/hijri/logo.jpeg',
+    'screenshots': [
+      '$projectBaseURL/projects_images/hijri/screenshot1.png',
+      '$projectBaseURL/projects_images/hijri/screenshot2.png',
+      '$projectBaseURL/projects_images/hijri/screenshot3.png',
+      '$projectBaseURL/projects_images/hijri/screenshot4.png',
+      '$projectBaseURL/projects_images/hijri/screenshot5.png',
+      '$projectBaseURL/projects_images/hijri/screenshot6.png',
+      '$projectBaseURL/projects_images/hijri/screenshot7.png',
+      '$projectBaseURL/projects_images/hijri/screenshot8.png',
+    ],
+    'skills': [
+      'Flutter',
+      'dart',
+      'Git',
+      'GitHub',
+      'RiverPod',
+      'Restful API',
+      'Responsive Design',
+      'Local Notifications',
+      'Hive',
+    ],
+  },
+  {
     'title': 'Omni Lab',
     'description':
         'Omni labs is an application to help dentists to order dental lab services in easier and faster way , same time to follow the progress of their orders step by step',
-    'google_play':
-        'https://play.google.com/store/apps/details?id=com.omnilabs.omni_labs',
-    'app_store': 'https://apps.apple.com/app/omni-lab/id1671362785',
+    'google_play': null,
+    'app_store': null,
     'web': null,
     'image': '$projectBaseURL/projects_images/Omni%20Labs/logo.png',
     'screenshots': [
@@ -33,9 +125,9 @@ const myProjects = [
     ],
   },
   {
-    'title': 'تقويم السعودية',
+    'title': 'Saudi Calendar',
     'description':
-        'تطبيق تقويم السعودية المجاني للتذكير بجميع المناسبات في السعودية بالتاريخ الهجري والميلادي، على سبيل المثال:\n- موعد الرواتب للموظفين والمتقاعدين.\n- موعد حساب المواطن.\n- موعد الضمان الاجتماعي.\n- التقويم الدراسي.\n- المناسبات العامة.\n- الندوات والمؤتمرات.\n- المعارض والمهرجانات.\n- مناسباتك الخاصة ويمكن استرجاع جميع المناسبات بعد حذف التطبيق أو مزامنتها مع جهاز آخر.\n- تاريخ اليوم.\n- التحكم بجميع الاعدادات.\n- الوضع الداكن.\nوغيرها من المميزات في التطبيق',
+        'A free Saudi calendar application to remind you of all occasions in Saudi Arabia using the Hijri and Gregorian date, for example:\n- Salary dates for employees and retirees.\n- Citizen account date.\n- Social security date.\n- School calendar.\n- Occasions Public.\n- Seminars and conferences.\n- Exhibitions and festivals.\n- Your special occasions. All events can be retrieved after deleting the application or syncing them with another device.\n- Today’s date.\n- Control all settings.\n- Dark mode .\nAnd other features in the application',
     'google_play':
         'https://play.google.com/store/apps/details?id=com.saudicalendars.app',
     'app_store':
@@ -65,9 +157,9 @@ const myProjects = [
     ],
   },
   {
-    'title': 'التقويم الدراسي السعودي',
+    'title': 'Academic Calendar',
     'description':
-        'تطبيق التقويم الدراسي\nحسب وزارة التعليم في المملكة العربية السعودية\nعداد تنازلي لتاريخ الإجازات والاختبارات\nودجت لمتابعة أقرب موعد مباشرة\nمتابعة موعد الرواتب\nمتابعة مناسبات عامة\nإضافة قسم للمناسبات الخاصة لمستخدم التطبيق',
+        'Application of the academic calendar\naccording to the Ministry of Education in the Kingdom of Saudi Arabia\ncountdown to the date of vacations and tests\nwidgets to follow the nearest date directly\nfollow the salary date\nfollow public events\nadd a section for special events for the application user',
     'google_play':
         'https://play.google.com/store/apps/details?id=com.saudicalendars.academic',
     'app_store':
@@ -97,7 +189,7 @@ const myProjects = [
     ],
   },
   {
-    'title': 'أوقات الصلاة',
+    'title': 'Prayer Times',
     'description':
         'Prayer times app is free and without ads.\nAlerts you to prayer times in all cities of the world.\nDisplay prayer times for the current day, upcoming days, and previous days.\nDirection of the qiblah.\nShow upcoming Islamic events.\nControl the alarm settings for each prayer.\nControl the choice of the muezzin, geographical location, and language.',
     'google_play':
@@ -125,9 +217,9 @@ const myProjects = [
     ],
   },
   {
-    'title': 'فعاليات السعودية',
+    'title': 'Saudi Events',
     'description':
-        'فعاليات السعودية يهتم بعرض أحدث الفعاليات والمهرجانات والمناسبات في السعودية مع إمكانية حفظها ومشاركتها والتذكير بها، علي سبيل المثال:\n- المناسبات العامة.\n- الندوات والمؤتمرات.\n- المعارض والمهرجانات.\n- المواسم والفعاليات.\n- موعد الرواتب للموظفين والمتقاعدين.\n- التقويم الدراسي.\n- مناسباتك الخاصة ويمكن استرجاع جميع المناسبات بعد حذف التطبيق أو مزامنتها مع جهاز آخر.\n- تاريخ اليوم.\n- التحكم بجميع الاعدادات.\n- الوضع الداكن.\nوغيرها من المميزات في التطبيق.',
+        'Saudi Events is concerned with displaying the latest events, festivals and events in Saudi Arabia with the possibility of saving, sharing and reminding them, for example:\n- Public events.\n- Seminars and conferences.\n- Exhibitions and festivals.\n- Seasons and events.\n- Appointment Salaries for employees and retirees.\n- Academic calendar.\n- Your special occasions. All occasions can be retrieved after deleting the application or syncing them with another device.\n- Today’s date.\n- Control of all settings.\n- Dark mode.\nAnd other Features in the application.',
     'google_play':
         'https://play.google.com/store/apps/details?id=com.ksaevent.app',
     'app_store':
@@ -157,9 +249,9 @@ const myProjects = [
     ],
   },
   {
-    'title': 'دليل نت',
+    'title': 'Dleel Net',
     'description':
-        'دليل لعرض أفضل التطبيقات والمواقع وحسابات شبكات التواصل الاجتماعي\nقم ببناء مفضلتك الخاصة بسرعة\nأضف مواقعك وتطبيقاتك وحساباتك المفضلة\nمفكرة لحفظ ملاحظاتك ومهامك\nمدونة لعرض جديد الأخبار والمعلومات\nوالمزيد ..',
+        'A guide to displaying the best applications, sites and social media accounts\nBuild your own favorites quickly\nAdd your favorite sites, applications and accounts\nA notebook to save your notes and tasks\nA blog to display new news and information\nAnd more..',
     'google_play':
         'https://play.google.com/store/apps/details?id=net.dleel.dleel',
     'app_store':
@@ -245,9 +337,8 @@ const myProjects = [
     'title': 'Tejara E-Commerece',
     'description':
         'This App For E-Commerce Uploaded On Google Play And App Store',
-    'google_play':
-        'https://play.google.com/store/apps/details?id=com.tejaraqa.tejara',
-    'app_store': 'https://apps.apple.com/us/app/tejara/id1540453728',
+    'google_play': null,
+    'app_store': null,
     'web': null,
     'image': '$projectBaseURL/projects_images/Tejara/logo.png',
     'screenshots': [
@@ -322,8 +413,7 @@ const myProjects = [
     'title': 'Gala Order',
     'description':
         'This App For Food Ordering That You Can Order Food From Any Restaruant And Delivery Will Deliver It To You And It Has Delivery App And Two Control Panels For Admin And Restaurant And It Uploaded On Google Play And App Store',
-    'google_play':
-        'https://play.google.com/store/apps/details?id=com.user.gala',
+    'google_play': null,
     'app_store': 'https://apps.apple.com/us/app/gala-order/id1640057386',
     'web': null,
     'image': '$projectBaseURL/projects_images/Gala%20Order/logo.png',
@@ -350,8 +440,7 @@ const myProjects = [
   {
     'title': 'Gala Driver',
     'description': 'This App For The Delivery Of Gala Order App',
-    'google_play':
-        'https://play.google.com/store/apps/details?id=com.gala.gala_rider',
+    'google_play': null,
     'app_store': null,
     'web': null,
     'image': '$projectBaseURL/projects_images/Gala%20Driver/logo.png',
@@ -400,7 +489,7 @@ const myProjects = [
     ],
   },
   {
-    'title': 'أكاديمية علمني',
+    'title': 'Allemny Academy',
     'description':
         'This App Is Webview Based App For Allemny Academy Uploaded On Google Play',
     'google_play':
@@ -425,10 +514,9 @@ const myProjects = [
     ],
   },
   {
-    'title': 'ستوريات 2022',
+    'title': '2022 Stories',
     'description': 'Download All Text And Video Stories From One App',
-    'google_play':
-        'https://play.google.com/store/apps/details?id=com.storiesstore.store',
+    'google_play': null,
     'app_store': null,
     'web': null,
     'image': '$projectBaseURL/projects_images/Whatsapp%20Stories/logo.png',
@@ -574,5 +662,5 @@ const myProjects = [
       'Restful API',
       'Responsive Design'
     ],
-  }
+  },
 ];
