@@ -33,7 +33,7 @@ class ProjectWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           boxShadow: [
             BoxShadow(
-              color: Theme.of(context).shadowColor.withOpacity(0.2),
+              color: Theme.of(context).shadowColor.withValues(alpha: 0.2),
               spreadRadius: 0,
               blurRadius: 4,
               offset: const Offset(2, 2),

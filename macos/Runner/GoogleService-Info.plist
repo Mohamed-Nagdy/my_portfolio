@@ -9,11 +9,11 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>mohamedabdelbasit.myPortfolio.RunnerTests</string>
+	<string>mohamedabdelbasit.myPortfolio</string>
 	<key>PROJECT_ID</key>
 	<string>mohamed-portfolio-a37de</string>
 	<key>STORAGE_BUCKET</key>
-	<string>mohamed-portfolio-a37de.appspot.com</string>
+	<string>mohamed-portfolio-a37de.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:400554224855:ios:21b0a1d248142bef7f1492</string>
+	<string>1:400554224855:ios:2bc29dd6e97334e87f1492</string>
 </dict>
 </plist>

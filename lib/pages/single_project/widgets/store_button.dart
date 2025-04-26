@@ -26,7 +26,7 @@ class StoreButton extends StatelessWidget {
           color: isDark(context) ? graySwatch.shade800 : graySwatch.shade100,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.2),
+              color: Colors.black.withValues(alpha: 0.2),
               spreadRadius: 1,
               blurRadius: 1,
               offset: const Offset(2, 2),

@@ -46,7 +46,7 @@ class SingleProjectWidget extends StatelessWidget {
                           : graySwatch.shade100,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
+                          color: Colors.black.withValues(alpha: 0.2),
                           spreadRadius: 2,
                           blurRadius: 1,
                           offset: const Offset(2, 3),

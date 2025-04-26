@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "400554224855",
     "project_id": "mohamed-portfolio-a37de",
-    "storage_bucket": "mohamed-portfolio-a37de.appspot.com"
+    "storage_bucket": "mohamed-portfolio-a37de.firebasestorage.app"
   },
   "client": [
     {
@@ -12,12 +12,7 @@
           "package_name": "mohamed_abdelbasit.my_portfolio"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "400554224855-lb68vdp4nuunq83hkm5s2nf5060moovj.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyDvPH5nLJeXI1VpkUy-3gTPwnKxuuXO5Og"
@@ -25,19 +20,7 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "400554224855-lb68vdp4nuunq83hkm5s2nf5060moovj.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "400554224855-1vnfiucmfiimulsr9vkcgja7gl72hiaf.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.hmz.folio"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
