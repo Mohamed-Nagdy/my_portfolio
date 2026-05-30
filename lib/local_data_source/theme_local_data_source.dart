@@ -8,7 +8,8 @@ class ThemeLocalDataSource {
 
   // get is the saved theme is dark theme or not
   ThemeMode themeMode() {
-    final isDarkTheme = box.get(Constants.themeKey.name) ?? false;
+    // Midnight Tech is dark-first; default to dark when nothing is saved.
+    final isDarkTheme = box.get(Constants.themeKey.name) ?? true;
 
     return isDarkTheme == true ? ThemeMode.dark : ThemeMode.light;
   }

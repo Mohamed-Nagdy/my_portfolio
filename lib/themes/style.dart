@@ -1,357 +1,172 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const Color eventsBackgroundColor = Color(0XFFEEF2F3);
-const Color whiteColor = Colors.white;
-const Color blackColor = Color(0xFF1B2124);
-const Color successGreen = Color(0xFF56CA00);
-const Color warningYellow = Color(0xFFFFB400);
-const Color dangerRed = Color(0xFFFF0000);
-const Color primaryColor = Color.fromARGB(255, 17, 111, 200);
-const Color secondaryColor = Color.fromARGB(255, 56, 198, 230);
-const Color blueColor = Color(0XFF005DCA);
+import 'app_colors.dart';
 
-const MaterialColor graySwatch = MaterialColor(0XFF000000, {
-  50: Color(0xFFF8FAFC),
-  100: Color(0xFFF1F5F9),
-  200: Color(0xFFE2E8F0),
-  300: Color(0xFFCBD5E1),
-  400: Color(0xFF94A3B8),
-  500: Color(0xFF64748B),
-  600: Color(0xFF475569),
-  700: Color(0xFF334155),
-  800: Color(0xFF1E293B),
-  900: Color(0xFF0F172A),
+// ── Legacy color aliases ─────────────────────────────────────────────
+// Kept so older widgets keep compiling; new code should prefer `context.c`.
+const Color whiteColor = Colors.white;
+const Color blackColor = AppColorsLegacy.ink;
+const Color successGreen = AppColors.success;
+const Color primaryColor = AppColors.accent;
+const Color secondaryColor = AppColors.accentDeep;
+
+class AppColorsLegacy {
+  static const Color ink = Color(0xFF0B0E14);
+}
+
+/// Backwards-compatible gray swatch mapped onto the Midnight Tech ramp.
+const MaterialColor graySwatch = MaterialColor(0xFF0A0B10, {
+  50: Color(0xFFF5F6F8),
+  100: Color(0xFFEDEFF3),
+  200: Color(0xFFD2D7E0),
+  300: Color(0xFFA6ADBB),
+  400: Color(0xFF6B7280),
+  500: Color(0xFF4B5563),
+  600: Color(0xFF323844),
+  700: Color(0xFF181B25),
+  800: Color(0xFF12141C),
+  900: Color(0xFF0A0B10),
 });
 
-final fontFamily = GoogleFonts.cairo().fontFamily;
+/// Default body font family handle (Manrope).
+final String? fontFamily = GoogleFonts.manrope().fontFamily;
 
-ThemeData appTheme(String? usedFontFamily) {
-  return ThemeData(
-    brightness: Brightness.light,
-    primaryIconTheme: IconThemeData(
-      color: graySwatch.shade600,
-      size: 24,
-    ),
-    dataTableTheme: DataTableThemeData(
-      dataRowColor: const WidgetStatePropertyAll(whiteColor),
-      dividerThickness: 1,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        boxShadow: const [
-          BoxShadow(
-            color: primaryColor,
-            blurRadius: 10,
-            offset: Offset(0, 2),
-            spreadRadius: 0,
-          )
-        ],
-      ),
-      horizontalMargin: 16,
-      headingTextStyle: TextStyle(
-        color: const Color(0xDD3A3541),
-        fontSize: 18,
-        fontFamily: fontFamily,
-        fontWeight: FontWeight.w900,
-        height: 0.17,
-        letterSpacing: 0.17,
-      ),
-    ),
-    iconTheme: IconThemeData(
-      color: graySwatch.shade600,
-      size: 24,
-    ),
-    appBarTheme: AppBarTheme(
-      centerTitle: true,
-      elevation: 0,
-      color: graySwatch.shade50,
-      toolbarHeight: 64,
-      titleTextStyle: TextStyle(
-        color: graySwatch.shade900,
-        fontSize: 18,
-        fontWeight: FontWeight.w600,
-        fontFamily: usedFontFamily,
-      ),
-      iconTheme: IconThemeData(
-        color: graySwatch.shade600,
-        size: 24,
-      ),
-    ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      elevation: 1,
-      backgroundColor: whiteColor,
-      selectedLabelStyle: TextStyle(
-        fontFamily: usedFontFamily,
-        color: graySwatch.shade900,
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-      ),
-      unselectedLabelStyle: TextStyle(
-        fontFamily: usedFontFamily,
-        color: graySwatch.shade600,
-        fontSize: 14,
-        fontWeight: FontWeight.w400,
-      ),
-      unselectedIconTheme: IconThemeData(color: graySwatch.shade600),
-      selectedIconTheme: const IconThemeData(color: primaryColor),
-      showUnselectedLabels: true,
-      showSelectedLabels: true,
-      selectedItemColor: graySwatch.shade900,
-      unselectedItemColor: graySwatch.shade600,
-    ),
-    primaryColor: primaryColor,
-    colorScheme: ColorScheme.light(
-      surface: graySwatch.shade50,
-      secondary: secondaryColor,
-      primary: primaryColor,
-    ),
-    expansionTileTheme: const ExpansionTileThemeData(
-      iconColor: primaryColor,
-      textColor: primaryColor,
-    ),
-    textButtonTheme: TextButtonThemeData(
-      style: ButtonStyle(
-        foregroundColor: WidgetStateProperty.resolveWith(
-          (states) => primaryColor,
-        ),
-      ),
-    ),
-    fontFamily: usedFontFamily,
-    scaffoldBackgroundColor: whiteColor,
-    drawerTheme: DrawerThemeData(backgroundColor: graySwatch.shade50),
-    cardColor: Colors.white,
-    secondaryHeaderColor: const Color(0XFF262d31),
-    dividerColor: graySwatch.shade200,
-    dividerTheme: DividerThemeData(
-      color: graySwatch.shade200,
-    ),
-    textTheme: TextTheme(
-      bodyLarge: TextStyle(
-        color: graySwatch.shade900,
-        fontSize: 18,
-        fontWeight: FontWeight.w400,
-      ),
-      bodyMedium: TextStyle(
-        color: graySwatch.shade900,
-        fontSize: 16,
-        fontWeight: FontWeight.w400,
-      ),
-      bodySmall: TextStyle(
-        color: graySwatch.shade900,
-        fontSize: 14,
-        fontWeight: FontWeight.w400,
-      ),
-      labelLarge: TextStyle(
-        color: graySwatch.shade900,
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
-      ),
-      labelMedium: TextStyle(
-        color: graySwatch.shade900,
-        fontSize: 18,
-        fontWeight: FontWeight.w500,
-      ),
-      labelSmall: TextStyle(
-        color: graySwatch.shade900,
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-      ),
-      headlineLarge: TextStyle(
-        color: graySwatch.shade900,
-        fontSize: 30,
-        fontWeight: FontWeight.w600,
-      ),
-      headlineMedium: TextStyle(
-        color: graySwatch.shade900,
-        fontSize: 26,
-        fontWeight: FontWeight.w600,
-      ),
-      headlineSmall: TextStyle(
-        color: graySwatch.shade900,
-        fontSize: 24,
-        fontWeight: FontWeight.w600,
-      ),
-    ),
-    datePickerTheme: DatePickerThemeData(
-      weekdayStyle: TextStyle(
-        color: graySwatch.shade900,
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
-      ),
-      dayStyle: TextStyle(
-        color: graySwatch.shade900,
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
-      ),
-      yearStyle: TextStyle(
-        color: graySwatch.shade900,
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
-      ),
-    ),
-  );
-}
+TextTheme _buildTextTheme(AppPalette p) {
+  final body = GoogleFonts.manropeTextTheme();
+  final display = GoogleFonts.bricolageGrotesque().fontFamily;
 
-ThemeData darkTheme(String? usedFontFamily) {
-  return ThemeData(
-    brightness: Brightness.dark,
-    primaryIconTheme: IconThemeData(
-      color: graySwatch.shade200,
-      size: 24,
-    ),
-    dataTableTheme: DataTableThemeData(
-      dividerThickness: 1,
-      headingTextStyle: TextStyle(
-        color: whiteColor,
-        fontSize: 18,
-        fontFamily: fontFamily,
-        fontWeight: FontWeight.w900,
-        height: 0.17,
-        letterSpacing: 0.17,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        boxShadow: const [
-          BoxShadow(
-            color: Color(0x193A3541),
-            blurRadius: 10,
-            offset: Offset(0, 2),
-            spreadRadius: 0,
-          )
-        ],
-      ),
-      horizontalMargin: 16,
-    ),
-    iconTheme: IconThemeData(
-      color: graySwatch.shade200,
-      size: 24,
-    ),
-    appBarTheme: AppBarTheme(
-      centerTitle: true,
-      elevation: 0,
-      color: graySwatch.shade800,
-      toolbarHeight: 64,
-      titleTextStyle: TextStyle(
-        color: graySwatch.shade50,
-        fontSize: 18,
+  final Color t = p.textPrimary;
+  final Color t2 = p.textSecondary;
+
+  return body.copyWith(
+    displayLarge: TextStyle(
+        fontFamily: display,
+        fontWeight: FontWeight.w800,
+        height: 1.02,
+        letterSpacing: -1.5,
+        color: t),
+    displayMedium: TextStyle(
+        fontFamily: display,
+        fontWeight: FontWeight.w800,
+        height: 1.04,
+        letterSpacing: -1.0,
+        color: t),
+    displaySmall: TextStyle(
+        fontFamily: display,
+        fontWeight: FontWeight.w700,
+        height: 1.06,
+        letterSpacing: -0.5,
+        color: t),
+    headlineLarge: TextStyle(
+        fontFamily: display,
+        fontWeight: FontWeight.w700,
+        height: 1.1,
+        letterSpacing: -0.5,
+        fontSize: 34,
+        color: t),
+    headlineMedium: TextStyle(
+        fontFamily: display,
+        fontWeight: FontWeight.w700,
+        height: 1.15,
+        letterSpacing: -0.3,
+        fontSize: 27,
+        color: t),
+    headlineSmall: TextStyle(
+        fontFamily: display,
         fontWeight: FontWeight.w600,
-        fontFamily: usedFontFamily,
-      ),
-      iconTheme: IconThemeData(
-        color: graySwatch.shade300,
-        size: 24,
-      ),
-    ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      elevation: 1,
-      backgroundColor: graySwatch.shade900,
-      selectedLabelStyle: TextStyle(
-        fontFamily: usedFontFamily,
-        color: graySwatch.shade100,
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-      ),
-      unselectedLabelStyle: TextStyle(
-        fontFamily: usedFontFamily,
-        color: graySwatch.shade100,
-        fontSize: 14,
-        fontWeight: FontWeight.w400,
-      ),
-      unselectedIconTheme: IconThemeData(color: graySwatch.shade100),
-      selectedIconTheme: IconThemeData(color: graySwatch.shade100),
-      showUnselectedLabels: true,
-      showSelectedLabels: true,
-      selectedItemColor: graySwatch.shade100,
-      unselectedItemColor: graySwatch.shade300,
-    ),
-    primaryColor: primaryColor,
-    colorScheme: ColorScheme.dark(
-      surface: graySwatch.shade900,
-      secondary: secondaryColor,
-      primary: primaryColor,
-    ),
-    expansionTileTheme: const ExpansionTileThemeData(
-      iconColor: primaryColor,
-      textColor: primaryColor,
-    ),
-    textButtonTheme: TextButtonThemeData(
-      style: ButtonStyle(
-        foregroundColor: WidgetStateProperty.resolveWith(
-          (states) => primaryColor,
-        ),
-      ),
-    ),
-    fontFamily: usedFontFamily,
-    scaffoldBackgroundColor: graySwatch.shade900,
-    drawerTheme: DrawerThemeData(backgroundColor: graySwatch.shade800),
-    cardColor: graySwatch.shade800,
-    dividerColor: graySwatch.shade600,
-    dividerTheme: DividerThemeData(
-      color: graySwatch.shade600,
-    ),
-    textTheme: TextTheme(
-      bodyLarge: TextStyle(
-        color: graySwatch.shade200,
-        fontSize: 18,
-        fontWeight: FontWeight.w400,
-      ),
-      bodyMedium: TextStyle(
-        color: graySwatch.shade200,
-        fontSize: 16,
-        fontWeight: FontWeight.w400,
-      ),
-      bodySmall: TextStyle(
-        color: graySwatch.shade200,
-        fontSize: 14,
-        fontWeight: FontWeight.w400,
-      ),
-      labelLarge: TextStyle(
-        color: graySwatch.shade200,
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
-      ),
-      labelMedium: TextStyle(
-        color: graySwatch.shade200,
-        fontSize: 18,
-        fontWeight: FontWeight.w500,
-      ),
-      labelSmall: TextStyle(
-        color: graySwatch.shade200,
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-      ),
-      headlineLarge: TextStyle(
-        color: graySwatch.shade200,
-        fontSize: 30,
-        fontWeight: FontWeight.w600,
-      ),
-      headlineMedium: TextStyle(
-        color: graySwatch.shade200,
-        fontSize: 26,
-        fontWeight: FontWeight.w600,
-      ),
-      headlineSmall: TextStyle(
-        color: graySwatch.shade200,
+        height: 1.2,
+        letterSpacing: -0.2,
         fontSize: 22,
-        fontWeight: FontWeight.w600,
-      ),
+        color: t),
+    titleLarge: GoogleFonts.manrope(
+        fontWeight: FontWeight.w700, fontSize: 20, color: t),
+    titleMedium: GoogleFonts.manrope(
+        fontWeight: FontWeight.w600, fontSize: 17, color: t),
+    titleSmall: GoogleFonts.manrope(
+        fontWeight: FontWeight.w600, fontSize: 15, color: t),
+    bodyLarge: GoogleFonts.manrope(
+        fontWeight: FontWeight.w400, fontSize: 17, height: 1.6, color: t2),
+    bodyMedium: GoogleFonts.manrope(
+        fontWeight: FontWeight.w400, fontSize: 15, height: 1.65, color: t2),
+    bodySmall: GoogleFonts.manrope(
+        fontWeight: FontWeight.w400, fontSize: 13, height: 1.6, color: t2),
+    labelLarge: GoogleFonts.manrope(
+        fontWeight: FontWeight.w600, fontSize: 15, color: t),
+    labelMedium: GoogleFonts.manrope(
+        fontWeight: FontWeight.w600, fontSize: 13, color: t),
+    labelSmall: GoogleFonts.manrope(
+        fontWeight: FontWeight.w500, fontSize: 12, color: t2),
+  );
+}
+
+/// Monospace style for technical kicker labels / section numbers / tags.
+TextStyle monoLabel(BuildContext context,
+    {Color? color, double size = 12, double spacing = 2.5}) {
+  return GoogleFonts.jetBrainsMono(
+    fontSize: size,
+    fontWeight: FontWeight.w500,
+    letterSpacing: spacing,
+    color: color ?? Theme.of(context).colorScheme.primary,
+  );
+}
+
+ThemeData _theme(AppPalette p) {
+  final scheme =
+      (p.isDark ? const ColorScheme.dark() : const ColorScheme.light())
+          .copyWith(
+    primary: p.accent,
+    secondary: p.accentAlt,
+    surface: p.surface,
+    onSurface: p.textPrimary,
+    error: const Color(0xFFFF5C5C),
+  );
+
+  return ThemeData(
+    useMaterial3: true,
+    brightness: p.isDark ? Brightness.dark : Brightness.light,
+    scaffoldBackgroundColor: p.bg,
+    canvasColor: p.bg,
+    colorScheme: scheme,
+    primaryColor: p.accent,
+    fontFamily: fontFamily,
+    textTheme: _buildTextTheme(p),
+    dividerColor: p.border,
+    dividerTheme: DividerThemeData(color: p.border, thickness: 1, space: 1),
+    iconTheme: IconThemeData(color: p.textSecondary, size: 22),
+    cardColor: p.surface,
+    splashFactory: InkSparkle.splashFactory,
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.transparent,
+      surfaceTintColor: Colors.transparent,
+      elevation: 0,
+      centerTitle: false,
+      toolbarHeight: 72,
+      titleTextStyle: TextStyle(color: p.textPrimary),
+      iconTheme: IconThemeData(color: p.textPrimary),
     ),
-    datePickerTheme: DatePickerThemeData(
-      weekdayStyle: TextStyle(
-        color: graySwatch.shade200,
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
+    drawerTheme: DrawerThemeData(backgroundColor: p.surface),
+    scrollbarTheme: ScrollbarThemeData(
+      thumbColor: WidgetStatePropertyAll(p.borderStrong),
+      thickness: const WidgetStatePropertyAll(6),
+      radius: const Radius.circular(8),
+    ),
+    snackBarTheme: SnackBarThemeData(
+      backgroundColor: p.surfaceAlt,
+      contentTextStyle: TextStyle(color: p.textPrimary),
+      behavior: SnackBarBehavior.floating,
+    ),
+    tooltipTheme: TooltipThemeData(
+      decoration: BoxDecoration(
+        color: p.surfaceAlt,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: p.border),
       ),
-      dayStyle: TextStyle(
-        color: graySwatch.shade200,
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
-      ),
-      yearStyle: TextStyle(
-        color: graySwatch.shade200,
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
-      ),
+      textStyle: TextStyle(color: p.textPrimary, fontSize: 12),
     ),
   );
 }
+
+ThemeData appTheme([String? _]) => _theme(AppColors.light);
+
+ThemeData darkTheme([String? _]) => _theme(AppColors.dark);

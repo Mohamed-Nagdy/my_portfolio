@@ -1,67 +1,102 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:responsive_framework/responsive_framework.dart';
-import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-import '../../../gen/assets.gen.dart';
-import '../providers/scroll_controller_provider.dart';
-import '../widgets/sections.dart';
+import '../../../themes/app_colors.dart';
+import '../widgets/footer.dart';
+import '../widgets/nav_bar.dart';
 import 'sections/about.dart';
 import 'sections/contact.dart';
+import 'sections/experience.dart';
+import 'sections/hero.dart';
+import 'sections/open_source.dart';
+import 'sections/process.dart';
 import 'sections/projects.dart';
+import 'sections/services.dart';
 import 'sections/skills.dart';
 
-class HomePage extends ConsumerWidget {
+class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
   static const routeName = '/';
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final scrollController = ref.read(scrollControllerProvider);
+  ConsumerState<HomePage> createState() => _HomePageState();
+}
 
+class _HomePageState extends ConsumerState<HomePage> {
+  final _scroll = ScrollController();
+  final _keys = <String, GlobalKey>{
+    'about': GlobalKey(),
+    'work': GlobalKey(),
+    'skills': GlobalKey(),
+    'services': GlobalKey(),
+    'contact': GlobalKey(),
+  };
+  bool _scrolled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scroll.addListener(() {
+      final scrolled = _scroll.offset > 40;
+      if (scrolled != _scrolled) setState(() => _scrolled = scrolled);
+    });
+  }
+
+  @override
+  void dispose() {
+    _scroll.dispose();
+    super.dispose();
+  }
+
+  void _goTo(String id) {
+    final ctx = _keys[id]?.currentContext;
+    if (ctx == null) return;
+    final box = ctx.findRenderObject() as RenderBox?;
+    final self = context.findRenderObject();
+    if (box == null || self == null) return;
+    final dy = box.localToGlobal(Offset.zero, ancestor: self).dy;
+    final target =
+        (_scroll.offset + dy - 78).clamp(0.0, _scroll.position.maxScrollExtent);
+    _scroll.animateTo(target,
+        duration: const Duration(milliseconds: 650),
+        curve: Curves.easeInOutCubic);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.c;
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 68,
-        leading: ResponsiveBreakpoints.of(context).isMobile
-            ? null
-            : Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Assets.images.logo.image(
-                  width: 64,
-                  height: 64,
-                ),
-              ),
-        actions: ResponsiveBreakpoints.of(context).isMobile
-            ? [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Assets.images.logo.image(
-                    width: 32,
-                    height: 32,
-                  ),
-                )
-              ]
-            : const [Sections()],
-      ),
-      drawer: ResponsiveBreakpoints.of(context).isMobile
-          ? const Drawer(
-              child: Sections(
-                isDrawer: true,
-              ),
-            )
-          : null,
-      body: ScrollablePositionedList.builder(
-        itemCount: 4,
-        itemScrollController: scrollController,
-        itemBuilder: (context, index) {
-          return switch (index) {
-            0 => const AboutSection(),
-            1 => const SkillsSection(),
-            2 => const ProjectsSection(),
-            3 => const ContactSection(),
-            _ => Container(),
-          };
-        },
+      backgroundColor: c.bg,
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            controller: _scroll,
+            child: Column(
+              children: [
+                HeroSection(
+                    onPrimary: () => _goTo('contact'),
+                    onSecondary: () => _goTo('work')),
+                KeyedSubtree(key: _keys['about'], child: const AboutSection()),
+                KeyedSubtree(
+                    key: _keys['work'], child: const ProjectsSection()),
+                KeyedSubtree(
+                    key: _keys['skills'], child: const SkillsSection()),
+                KeyedSubtree(
+                    key: _keys['services'], child: const ServicesSection()),
+                const ProcessSection(),
+                const ExperienceSection(),
+                const OpenSourceSection(),
+                KeyedSubtree(
+                    key: _keys['contact'], child: const ContactSection()),
+                Footer(onNav: _goTo),
+              ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.topCenter,
+            child: NavBar(scrolled: _scrolled, onNav: _goTo),
+          ),
+        ],
       ),
     );
   }

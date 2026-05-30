@@ -24,7 +24,10 @@ enum Skills {
   html,
   css,
   bootstrap,
-  jquery;
+  jquery,
+  react,
+  nextjs,
+  tailwind;
 
   String get name {
     switch (this) {
@@ -76,6 +79,12 @@ enum Skills {
         return 'Bootstrap';
       case Skills.jquery:
         return 'jQuery';
+      case Skills.react:
+        return 'React';
+      case Skills.nextjs:
+        return 'Next.js';
+      case Skills.tailwind:
+        return 'Tailwind';
     }
   }
 
@@ -129,6 +138,12 @@ enum Skills {
         return Assets.skills.bootstrap.path;
       case jquery:
         return Assets.skills.jquery.path;
+      case react:
+        return Assets.skills.react.path;
+      case nextjs:
+        return Assets.skills.nextjs.path;
+      case tailwind:
+        return Assets.skills.tailwind.path;
     }
   }
 }

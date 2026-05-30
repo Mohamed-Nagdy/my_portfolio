@@ -1,109 +1,133 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../models/project.dart';
+import '../../../themes/app_colors.dart';
 import '../../../themes/style.dart';
-import '../../../utils/help_functions.dart';
-import '../../../widgets/primary_chip.dart';
+import '../../../widgets/glass_card.dart';
+import '../../../widgets/project_image.dart';
 import '../../single_project/pages/single_project.dart';
 
+IconData? platformIcon(String platform) {
+  switch (platform.toLowerCase()) {
+    case 'ios':
+      return Icons.apple;
+    case 'android':
+      return Icons.android;
+    case 'web':
+      return Icons.public;
+    default:
+      return null;
+  }
+}
+
 class ProjectWidget extends StatelessWidget {
-  const ProjectWidget({super.key, this.project});
-  final Project? project;
+  const ProjectWidget({required this.project, super.key});
+  final Project project;
 
   @override
   Widget build(BuildContext context) {
-    final isMobile = ResponsiveBreakpoints.of(context).isMobile;
-    final isTablet = ResponsiveBreakpoints.of(context).isTablet;
-    final isMobileOrTablet = isMobile || isTablet;
-    final skillsLenght =
-        (project?.skills?.length ?? 0) > 6 ? 6 : (project?.skills?.length ?? 0);
+    final c = context.c;
+    final theme = Theme.of(context);
+    final isVibezo = project.slug == 'vibezo';
+    final panelGradient = isVibezo
+        ? AppColors.vibezoGradient
+        : LinearGradient(
+            colors: [
+              c.accent.withValues(alpha: 0.16),
+              c.accentAlt.withValues(alpha: 0.05),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          );
 
-    return InkWell(
+    return GlassCard(
+      hoverable: true,
+      padding: EdgeInsets.zero,
       onTap: () => context.goNamed(
         SingleProject.routeName,
-        queryParameters: {'id': '${project?.id}'},
+        queryParameters: {'slug': project.slug},
       ),
-      borderRadius: BorderRadius.circular(8),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: Theme.of(context).scaffoldBackgroundColor,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: [
-            BoxShadow(
-              color: Theme.of(context).shadowColor.withValues(alpha: 0.2),
-              spreadRadius: 0,
-              blurRadius: 4,
-              offset: const Offset(2, 2),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Logo panel
+          Container(
+            height: 132,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              gradient: panelGradient,
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(19)),
             ),
-          ],
-        ),
-        child: ResponsiveRowColumn(
-          layout: ResponsiveRowColumnType.ROW,
-          children: [
-            ResponsiveRowColumnItem(
-              child: Expanded(
-                child: Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  color: isDark(context)
-                      ? graySwatch.shade700
-                      : graySwatch.shade100,
-                  padding: EdgeInsets.all(isMobileOrTablet ? 8 : 32),
-                  child: CachedNetworkImage(
-                    imageUrl: '${project?.image}',
-                    errorWidget: (context, error, stackTrace) {
-                      print('Error In Loading $error');
-                      return const SizedBox();
-                    },
-                  ),
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: SizedBox(
+                  height: 76,
+                  width: 76,
+                  child: ProjectImage(project.image, fit: BoxFit.contain),
                 ),
               ),
             ),
-            ResponsiveRowColumnItem(
-              child: Expanded(
-                child: Container(
-                  color: isDark(context) ? graySwatch.shade800 : whiteColor,
-                  width: double.infinity,
-                  height: double.infinity,
-                  padding: EdgeInsets.all(isMobileOrTablet ? 8 : 32),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '${project?.title}',
-                          style: Theme.of(context).textTheme.headlineSmall,
-                        ),
-                        SizedBox(height: isMobileOrTablet ? 8 : 24),
-                        Text(
-                          '${project?.description}',
-                          style: Theme.of(context).textTheme.bodyMedium,
-                          maxLines: isMobileOrTablet ? 2 : 3,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        SizedBox(height: isMobileOrTablet ? 8 : 24),
-                        Wrap(
-                          alignment: WrapAlignment.start,
-                          children: [
-                            for (int i = 0; i < skillsLenght; i++)
-                              Padding(
-                                padding: const EdgeInsets.all(2),
-                                child:
-                                    PrimaryChip(text: '${project?.skills?[i]}'),
-                              ),
-                          ],
-                        ),
-                      ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        project.categoryLabel.toUpperCase(),
+                        style: monoLabel(context,
+                            color: c.textTertiary, size: 10.5, spacing: 1.6),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                  ),
+                    ...project.platforms.map((p) {
+                      final icon = platformIcon(p);
+                      if (icon == null) return const SizedBox.shrink();
+                      return Padding(
+                        padding: const EdgeInsets.only(left: 8),
+                        child: Icon(icon, size: 13, color: c.textTertiary),
+                      );
+                    }),
+                  ],
                 ),
-              ),
+                const SizedBox(height: 10),
+                Text(project.title, style: theme.textTheme.headlineSmall),
+                const SizedBox(height: 8),
+                Text(
+                  project.tagline ?? project.description,
+                  style: theme.textTheme.bodyMedium?.copyWith(fontSize: 13.5),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  children: [
+                    Text(
+                      'View project',
+                      style: TextStyle(
+                        color: c.accent,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 13,
+                      ),
+                    ),
+                    const SizedBox(width: 6),
+                    Icon(Icons.arrow_outward_rounded,
+                        size: 15, color: c.accent),
+                  ],
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -17,10 +17,9 @@ GoRouter get getRouter {
         path: SingleProject.routeName,
         name: SingleProject.routeName,
         builder: (context, state) {
-          final projectId = state.uri.queryParameters['id'];
-          return SingleProject(
-            projectId: projectId,
-          );
+          final slug = state.uri.queryParameters['slug'] ??
+              state.uri.queryParameters['id'];
+          return SingleProject(slug: slug);
         },
       ),
     ],

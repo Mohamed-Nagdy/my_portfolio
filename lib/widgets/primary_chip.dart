@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../themes/app_colors.dart';
 import '../themes/style.dart';
-import '../utils/help_functions.dart';
 
+/// Mono kicker label (e.g. "SKILLS"). Retained name for compatibility.
 class PrimaryChip extends StatelessWidget {
   const PrimaryChip({
     required this.text,
@@ -14,30 +15,17 @@ class PrimaryChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final c = context.c;
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
+      padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 14),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
-        color: isDark(context) ? graySwatch.shade700 : graySwatch.shade200,
+        borderRadius: BorderRadius.circular(100),
+        color: c.accent.withValues(alpha: 0.1),
+        border: Border.all(color: c.accent.withValues(alpha: 0.35)),
       ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            text,
-            style: Theme.of(context).textTheme.labelSmall,
-          ),
-          const SizedBox(width: 4),
-          if (onTap != null)
-            InkWell(
-              onTap: onTap,
-              child: const Icon(
-                Icons.clear,
-                size: 20,
-              ),
-            ),
-        ],
+      child: Text(
+        text.toUpperCase(),
+        style: monoLabel(context, color: c.accent),
       ),
     );
   }

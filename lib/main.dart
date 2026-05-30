@@ -59,17 +59,13 @@ void main() {
       setPathUrlStrategy();
       await Hive.initFlutter();
       box = await Hive.openBox(Constants.mainBox.name);
-      // await uploadProjectsToFirebase();
       final GoRouter router = getRouter;
 
       SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-      await SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
-      );
 
       return runApp(
         ProviderScope(
-          child: DrivingSchoolDashboard(
+          child: NagdyLabsApp(
             router: router,
           ),
         ),
@@ -81,17 +77,12 @@ void main() {
   );
 }
 
-class DrivingSchoolDashboard extends ConsumerStatefulWidget {
-  const DrivingSchoolDashboard({required this.router, super.key});
+class NagdyLabsApp extends ConsumerWidget {
+  const NagdyLabsApp({required this.router, super.key});
   final GoRouter router;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _PrayerTimesAppState();
-}
-
-class _PrayerTimesAppState extends ConsumerState<DrivingSchoolDashboard> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final themeMode = ref.watch(themeNotifier.select((value) => value));
 
     return ResponsiveBreakpoints(
@@ -101,35 +92,20 @@ class _PrayerTimesAppState extends ConsumerState<DrivingSchoolDashboard> {
         Breakpoint(start: 1201, end: double.infinity, name: DESKTOP),
       ],
       child: MaterialApp.router(
-        title: 'Driving School Dashboard',
+        title: 'Nagdy Labs — Software Studio',
         scrollBehavior: CustomScrollBehavior(),
         debugShowCheckedModeBanner: false,
-        theme: appTheme(fontFamily),
-        darkTheme: darkTheme(fontFamily),
-        routerConfig: widget.router,
+        theme: appTheme(),
+        darkTheme: darkTheme(),
+        routerConfig: router,
         themeMode: themeMode,
         builder: (context, child) {
           final mediaQueryData = MediaQuery.of(context);
-          return ResponsiveScaledBox(
-            width: ResponsiveValue<double?>(
-              context,
-              conditionalValues: [
-                const Condition.equals(name: MOBILE, value: 450),
-                const Condition.between(start: 800, end: 1100, value: 800),
-                const Condition.between(start: 1000, end: 1200, value: 1000),
-              ],
-            ).value,
-            child: MediaQuery(
-              data: mediaQueryData.copyWith(
-                textScaler: const TextScaler.linear(1),
-              ),
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surface,
-                ),
-                child: child,
-              ),
+          return MediaQuery(
+            data: mediaQueryData.copyWith(
+              textScaler: const TextScaler.linear(1),
             ),
+            child: child ?? const SizedBox.shrink(),
           );
         },
       ),

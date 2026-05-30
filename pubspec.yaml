@@ -11,18 +11,18 @@ environment:
 dependencies:
   flutter_riverpod: ^2.6.1
   intl: ^0.18.1
-  url_launcher: ^6.3.1
-  cupertino_icons: ^1.0.8
+  url_launcher: ^6.3.2
+  cupertino_icons: ^1.0.9
   responsive_framework: ^1.5.1
-  go_router: ^15.1.1
-  google_fonts: ^6.2.1
+  go_router: ^15.1.3
+  google_fonts: ^6.3.3
   url_strategy: ^0.3.0
-  font_awesome_flutter: ^10.8.0
+  font_awesome_flutter: ^11.0.0
   collection: ^1.19.1
   flutter_animate: ^4.5.2
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  scrollable_positioned_list: ^0.3.8
+  visibility_detector: ^0.4.0+2
 
   flutter:
     sdk: flutter
@@ -52,6 +52,36 @@ flutter:
     - assets/
     - assets/images/
     - assets/skills/
+    - assets/branding/
+    - assets/projects/academic_calendar/
+    - assets/projects/afaky/
+    - assets/projects/allemny/
+    - assets/projects/bank_aldam/
+    - assets/projects/blue_house_dashboard/
+    - assets/projects/blue_house_user/
+    - assets/projects/boardverse/
+    - assets/projects/brain_land/
+    - assets/projects/crystal_crush/
+    - assets/projects/dleel/
+    - assets/projects/driving_school_dashboard/
+    - assets/projects/gala_driver/
+    - assets/projects/gala_order/
+    - assets/projects/hayat_almuslim/
+    - assets/projects/helpers/
+    - assets/projects/hijri/
+    - assets/projects/ksa_events/
+    - assets/projects/mariam/
+    - assets/projects/omni_labs/
+    - assets/projects/prayer_times/
+    - assets/projects/qr_scanner/
+    - assets/projects/saudi_calendars/
+    - assets/projects/smart_spend/
+    - assets/projects/tabarak/
+    - assets/projects/taskaty/
+    - assets/projects/tejara/
+    - assets/projects/vibezo/
+    - assets/projects/wardi/
+    - assets/projects/whatsapp_stories/
 
 # flutter pub run flutter_native_splash:create
 flutter_native_splash:

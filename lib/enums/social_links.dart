@@ -29,17 +29,17 @@ enum SocialLinks {
   IconData get icon {
     switch (this) {
       case github:
-        return FontAwesomeIcons.github;
+        return FontAwesomeIcons.github.data;
       case linkedin:
-        return FontAwesomeIcons.linkedin;
+        return FontAwesomeIcons.linkedin.data;
       case hackerrank:
-        return FontAwesomeIcons.hackerrank;
+        return FontAwesomeIcons.hackerrank.data;
       case twitter:
-        return FontAwesomeIcons.twitter;
+        return FontAwesomeIcons.twitter.data;
       case facebook:
-        return FontAwesomeIcons.facebook;
+        return FontAwesomeIcons.facebook.data;
       case whatsapp:
-        return FontAwesomeIcons.whatsapp;
+        return FontAwesomeIcons.whatsapp.data;
     }
   }
 

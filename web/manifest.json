@@ -1,11 +1,11 @@
 {
-    "name": "my_portfolio",
-    "short_name": "my_portfolio",
+    "name": "Nagdy Labs — Software Studio",
+    "short_name": "Nagdy Labs",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#FFFFFF",
-    "theme_color": "#FFFFFF",
-    "description": "A new Flutter project.",
+    "background_color": "#0A0B10",
+    "theme_color": "#0A0B10",
+    "description": "A founder-led software studio building production-grade mobile, web and real-time products.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
