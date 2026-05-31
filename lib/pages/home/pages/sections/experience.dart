@@ -18,22 +18,22 @@ class ExperienceSection extends StatelessWidget {
           const SectionHeader(
             kicker: 'TRACK RECORD',
             number: '06',
-            title: 'Years of shipping, across teams and stacks.',
+            title: 'Years of shipping, milestone by milestone.',
             lead:
-                'From hands-on engineer to heading a software department — the experience behind the studio.',
+                'From our first apps to a high-concurrency social platform — the products that built the studio.',
           ),
           const SizedBox(height: 48),
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 820),
             child: Column(
               children: [
-                for (var i = 0; i < experience.length; i++)
+                for (var i = 0; i < milestones.length; i++)
                   Reveal(
                     delay: Duration(milliseconds: 50 * i),
                     child: _ExpRow(
-                      item: experience[i],
-                      isFirst: i == 0,
-                      isLast: i == experience.length - 1,
+                      item: milestones[i],
+                      isFirst: i == milestones.length - 1,
+                      isLast: i == milestones.length - 1,
                     ),
                   ),
               ],
@@ -48,7 +48,7 @@ class ExperienceSection extends StatelessWidget {
 class _ExpRow extends StatelessWidget {
   const _ExpRow(
       {required this.item, required this.isFirst, required this.isLast});
-  final ExperienceItem item;
+  final Milestone item;
   final bool isFirst;
   final bool isLast;
 
@@ -87,22 +87,10 @@ class _ExpRow extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Wrap(
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    spacing: 10,
-                    children: [
-                      Text(item.role, style: theme.textTheme.titleMedium),
-                      Text('· ${item.org}',
-                          style: TextStyle(
-                              color: c.accent,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 15)),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  Text(item.period,
-                      style:
-                          monoLabel(context, color: c.textTertiary, size: 11)),
+                  Text(item.year,
+                      style: monoLabel(context, color: c.accent, size: 12)),
+                  const SizedBox(height: 6),
+                  Text(item.title, style: theme.textTheme.titleMedium),
                   const SizedBox(height: 10),
                   Text(item.blurb, style: theme.textTheme.bodySmall),
                 ],

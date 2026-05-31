@@ -113,7 +113,7 @@ class Footer extends StatelessWidget {
             Row(
               children: [
                 Flexible(
-                  child: Text('© 2026 $studioName · $founderName',
+                  child: Text('© 2026 $studioName · All rights reserved',
                       style: TextStyle(color: c.textTertiary, fontSize: 12.5)),
                 ),
                 const Spacer(),

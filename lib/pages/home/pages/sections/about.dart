@@ -16,7 +16,7 @@ class AboutSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final isWide = MediaQuery.sizeOf(context).width >= 900;
 
-    const founder = _FounderCard();
+    const studio = _StudioCard();
     const text = _AboutText();
 
     return SectionContainer(
@@ -27,7 +27,7 @@ class AboutSection extends StatelessWidget {
               children: [
                 Expanded(flex: 6, child: text),
                 SizedBox(width: 64),
-                Expanded(flex: 5, child: founder),
+                Expanded(flex: 5, child: studio),
               ],
             )
           : const Column(
@@ -35,7 +35,7 @@ class AboutSection extends StatelessWidget {
               children: [
                 text,
                 SizedBox(height: 40),
-                founder,
+                studio,
               ],
             ),
     );
@@ -67,7 +67,9 @@ class _AboutText extends StatelessWidget {
             runSpacing: 12,
             children: [
               _Fact(icon: FontAwesomeIcons.locationDot.data, label: myAddress),
-              _Fact(icon: FontAwesomeIcons.graduationCap.data, label: education),
+              _Fact(
+                  icon: FontAwesomeIcons.solidStar.data,
+                  label: 'Shipping since 2019'),
             ],
           ),
           const SizedBox(height: 24),
@@ -130,8 +132,8 @@ class _SocialButton extends StatelessWidget {
   }
 }
 
-class _FounderCard extends StatelessWidget {
-  const _FounderCard();
+class _StudioCard extends StatelessWidget {
+  const _StudioCard();
 
   @override
   Widget build(BuildContext context) {
@@ -182,9 +184,9 @@ class _FounderCard extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(founderName, style: theme.textTheme.titleLarge),
+                          Text(studioName, style: theme.textTheme.titleLarge),
                           const SizedBox(height: 4),
-                          Text('Founder · Nagdy Labs',
+                          Text('Software Studio',
                               style: TextStyle(
                                   color: c.accent,
                                   fontSize: 13,
@@ -198,19 +200,19 @@ class _FounderCard extends StatelessWidget {
                 Divider(color: c.border, height: 1),
                 const SizedBox(height: 22),
                 _CardFact(
-                    icon: FontAwesomeIcons.briefcase.data,
-                    label: 'Head of Software Development',
-                    value: 'Zytronic'),
+                    icon: FontAwesomeIcons.layerGroup.data,
+                    label: 'Full-stack delivery',
+                    value: 'Flutter · Node.js · NestJS'),
                 const SizedBox(height: 16),
                 _CardFact(
-                    icon: FontAwesomeIcons.graduationCap.data,
-                    label: 'B.Sc. Computer Engineering',
-                    value: 'Zagazig University · 2020'),
+                    icon: FontAwesomeIcons.cubes.data,
+                    label: '29 products shipped',
+                    value: 'Mobile · Web · Games · Backend'),
                 const SizedBox(height: 16),
                 _CardFact(
-                    icon: FontAwesomeIcons.locationDot.data,
-                    label: 'Based in',
-                    value: 'Cairo, Egypt'),
+                    icon: FontAwesomeIcons.earthAfrica.data,
+                    label: 'Based in Cairo, Egypt',
+                    value: 'Working with clients worldwide'),
                 const SizedBox(height: 24),
                 Container(
                   padding:

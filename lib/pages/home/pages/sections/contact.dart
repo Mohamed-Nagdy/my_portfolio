@@ -63,22 +63,10 @@ class ContactSection extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 32),
-                  Wrap(
-                    spacing: 16,
-                    runSpacing: 16,
-                    children: [
-                      GradientButton(
-                        label: 'Email us',
-                        icon: FontAwesomeIcons.solidPaperPlane.data,
-                        onTap: () => launchUrlString('mailto:$myEmail'),
-                      ),
-                      GhostButton(
-                        label: 'Download CV',
-                        icon: FontAwesomeIcons.fileArrowDown.data,
-                        onTap: () => launchUrlString(cvURL,
-                            mode: LaunchMode.externalApplication),
-                      ),
-                    ],
+                  GradientButton(
+                    label: 'Email us',
+                    icon: FontAwesomeIcons.solidPaperPlane.data,
+                    onTap: () => launchUrlString('mailto:$myEmail'),
                   ),
                   const SizedBox(height: 36),
                   Divider(color: c.border),

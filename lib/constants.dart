@@ -14,19 +14,15 @@ const studioHeadline = 'We build production-grade apps & backends.';
 const studioSubhead =
     'Nagdy Labs is a founder-led software studio shipping high-performance mobile, web and real-time products — from polished Flutter interfaces to scalable Node.js & NestJS systems.';
 
-// ── Founder ──────────────────────────────────────────────────────────
-const founderName = 'Mohamed Abdelbasit';
-const founderRole = 'Head of Software Development · Senior Software Engineer';
+// ── About the studio ─────────────────────────────────────────────────
 const aboutKicker = 'ABOUT THE STUDIO';
-const aboutTitle = 'Engineering led by someone who ships.';
+const aboutTitle = 'We engineer products, end to end.';
 const aboutLead =
-    'Nagdy Labs is led by Mohamed Abdelbasit — a software-engineering leader with 5+ years building and shipping high-performance products end to end.';
+    'Nagdy Labs is a software studio with 5+ years building and shipping high-performance products — from first commit to production.';
 const aboutBody =
-    'We pair deep Flutter & Dart craft with scalable Node.js / NestJS backends, real-time systems and clean cloud infrastructure. Across e-commerce, ERP, events and social platforms, we have delivered 15+ production applications — owning the full lifecycle from architecture and API design through deployment, monitoring and iteration. Today Mohamed heads the software department at Zytronic, driving technical strategy, architecture and delivery.';
+    'We pair deep Flutter & Dart craft with scalable Node.js / NestJS backends, real-time systems and clean cloud infrastructure. Across mobile, web, games, e-commerce and social platforms, we have shipped 29 production applications — owning the full lifecycle: architecture, API design, deployment, monitoring and iteration.';
 
 const myAddress = 'Cairo, Egypt — working worldwide';
-const cvURL =
-    'https://drive.google.com/file/d/1cMULEa-in5872uzjoNnR3fpxxhmRJEG6/view?usp=share_link';
 const myEmail = 'mohamednagdy257@gmail.com';
 const myPhone = '+201558400064';
 const githubURL = 'https://github.com/Mohamed-Nagdy';
@@ -39,46 +35,38 @@ const studioStats = <(String, String)>[
   ('9', 'Languages localized'),
 ];
 
-// ── Experience timeline (from CV) ────────────────────────────────────
-class ExperienceItem {
-  const ExperienceItem(this.role, this.org, this.period, this.blurb);
-  final String role;
-  final String org;
-  final String period;
+// ── Studio track record (product milestones) ─────────────────────────
+class Milestone {
+  const Milestone(this.year, this.title, this.blurb);
+  final String year;
+  final String title;
   final String blurb;
 }
 
-const experience = <ExperienceItem>[
-  ExperienceItem(
-    'Head of Software Development',
-    'Zytronic',
-    'Jan 2026 — Present',
-    'Leading the software department: technical strategy, architecture, CI/CD and delivery across all products.',
+const milestones = <Milestone>[
+  Milestone(
+    '2019',
+    'First products shipped',
+    'Our earliest Quran and utility apps reach Google Play — where the studio cut its teeth on polish, performance and reliability.',
   ),
-  ExperienceItem(
-    'Software Engineer — Mobile',
-    'Super App',
-    'Feb 2023 — Dec 2025',
-    'Full-stack cross-platform apps in Flutter with Node.js services, performance tuning and RESTful API design.',
+  Milestone(
+    '2021',
+    'Calendar & events suite',
+    'A family of Saudi calendar, prayer-time and events apps — one of which crosses 1M+ downloads across Android and iOS.',
   ),
-  ExperienceItem(
-    'Full-Stack Mobile Engineer',
-    'Freelance (Remote)',
-    'Jun 2022 — Feb 2023',
-    'End-to-end Flutter apps with Node.js backends, delivered for remote clients on Agile cycles.',
+  Milestone(
+    '2022',
+    'Full-stack platforms',
+    'End-to-end products on Node.js backends — food-ordering with driver apps and admin dashboards, plus social applications.',
   ),
-  ExperienceItem(
-    'Mobile Developer',
-    'Afaky Info Tech',
-    'Jun 2021 — Jun 2022',
-    'Architected a comprehensive ERP system delivered as a cross-platform mobile application.',
+  Milestone(
+    '2024',
+    'Games & finance',
+    'Published games (Crystal Crush, Brain Land) alongside finance and productivity apps with cloud sync and analytics.',
   ),
-  ExperienceItem(
-    'Mobile Developer',
-    'Best Gator',
-    'Jan 2021 — Jun 2021',
-    'Built and maintained Flutter apps with Node.js back-end services, optimized for speed and scale.',
+  Milestone(
+    '2026',
+    'ViBE ZO — our flagship',
+    'A social livestreaming & short-video platform on a NestJS + PostgreSQL backend engineered for high concurrency.',
   ),
 ];
-
-const education = 'B.Sc. Computer Engineering — Zagazig University, 2020';
